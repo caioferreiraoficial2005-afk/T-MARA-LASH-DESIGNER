@@ -170,7 +170,7 @@ footer h5{font-family:var(--wide);font-weight:400;font-size:10px;letter-spacing:
 @media (max-width:900px){
   .links{display:none}
   .hero-img{object-position:50% 40%}
-  .hero-word{font-size:22vw;bottom:auto;top:62%}
+  .hero-word{font-size:14.5vw;top:auto;bottom:calc(36vh + 10px);letter-spacing:.04em}
   .hero-side{display:none}
   .hero-copy{right:20px;max-width:none}
   .sobre{grid-template-columns:1fr;padding-top:100px}
@@ -181,7 +181,7 @@ footer h5{font-family:var(--wide);font-weight:400;font-size:10px;letter-spacing:
   .proc>img{position:relative;inset:auto;height:64vh;object-position:var(--mp,50% 50%)}
   .proc::after,.proc.rev::after{top:0;bottom:auto;height:64vh;background:linear-gradient(0deg,var(--bg) 0%,rgba(7,5,4,.35) 28%,transparent 50%)}
   .proc-box,.proc.rev .proc-box{margin:-18px 20px 0}
-  .proc .big,.proc.rev .big{top:calc(64vh - 24vw);bottom:auto;font-size:22vw;left:-2vw;right:auto}
+  .proc .big,.proc.rev .big{top:calc(64vh - 17vw);bottom:auto;font-size:13vw;left:20px;right:auto;letter-spacing:.02em}
   .estudio{height:88vh}
   .estudio img{filter:brightness(.8);object-position:62% 60%}
   .compare{aspect-ratio:4/5}
@@ -348,6 +348,22 @@ nav .logo small{color:#d9a48c}nav.solid .logo small{color:var(--rose)}
   .onde{grid-template-columns:1fr}
 }
 
+@media (max-width:900px){
+  .passo .img{aspect-ratio:4/5}
+  .passo .img img{object-position:50% 35%}
+  .bento{grid-auto-rows:auto}
+  .bento .bcard{aspect-ratio:4/5}
+  .bento .g,.bento .w,.bento .cta{grid-column:span 2;aspect-ratio:1/1}
+  .bento .cta{aspect-ratio:auto}
+  .bento .t{grid-row:span 1}
+  .bcard img{object-position:50% 30%}
+  .quadro{grid-auto-rows:auto}
+  .quadro .mfoto{aspect-ratio:4/5}
+  .quadro .f4{aspect-ratio:3/2}
+  .quadro .mfoto img{object-position:50% 35%}
+  .faixa img{object-position:60% 40%}
+  .estudio img{object-position:55% 50%}
+}
 </style>
 </head>
 <body>
@@ -540,7 +556,7 @@ const tl = gsap.timeline({scrollTrigger:{trigger:'.hero',start:'top top',end:'+=
 tl.to(st,{y:43,w:9,ease:'none',onUpdate:apply,duration:1})
   .to(st,{w:60,ease:'power1.in',onUpdate:apply,duration:.8})
   .to('.hero-img',{scale:1,ease:'none',duration:1.8},0)
-  .fromTo('#heroWord',{letterSpacing:'0.5em',opacity:0},{letterSpacing:'0.06em',opacity:.95,ease:'power2.out',duration:1.2},0.2)
+  .fromTo('#heroWord',{letterSpacing:matchMedia('(max-width:900px)').matches?'0.18em':'0.5em',opacity:0},{letterSpacing:matchMedia('(max-width:900px)').matches?'0.04em':'0.06em',opacity:.95,ease:'power2.out',duration:1.2},0.2)
   .to('#cue',{opacity:0,duration:.3},0);
 gsap.from('.rv-hero',{opacity:0,y:24,duration:1.2,delay:.3,stagger:.15,ease:'power3.out'});
 
