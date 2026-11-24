@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tâmara Santos · Extensão de cílios na Ponta Verde, Maceió</title>
+<meta name="description" content="Extensão de cílios com acabamento natural na Ponta Verde, Maceió. Nota 5,0 no Google.">
+<style>
+@font-face{font-family:"Unbounded";src:url(assets/fonts/unbounded.woff2) format("woff2");font-weight:200 900;font-display:swap}
+@font-face{font-family:"Manrope";src:url(assets/fonts/manrope.woff2) format("woff2");font-weight:200 800;font-display:swap}
+@font-face{font-family:"Italiana";src:url(assets/fonts/italiana.woff2) format("woff2");font-weight:400;font-display:swap}
+:root{
+  --bg:#ffffff;--bg2:#faf6f3;--fg:#1d1613;--muted:#8d7d73;--line:rgba(29,22,19,.1);
+  --rose:#b47a61;--rose-lt:#9b6550;
+  --gold:linear-gradient(100deg,#6e4031 0%,#b9795f 30%,#d9a48c 50%,#b9795f 70%,#6e4031 100%);
+  --goldhero:linear-gradient(100deg,#6e4031 0%,#c98a70 22%,#f7dccd 45%,#fff4ec 52%,#d9a48c 66%,#7a4a39 100%);
+  --wide:"Unbounded",system-ui,sans-serif;--txt:"Manrope",system-ui,sans-serif;--serif:"Italiana",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+.hero{background:#070504;color:#f4ece6}.hero .gold{background:var(--goldhero);-webkit-background-clip:text;background-clip:text}.hero .btn{color:#f4ece6;border-color:rgba(217,164,140,.55)}.hero .kicker{color:#d9a48c}
+body{background:var(--bg);color:var(--fg);font-family:var(--txt);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.gold{background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.kicker{font-family:var(--wide);font-weight:400;font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--rose)}
+.btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--wide);font-weight:400;font-size:11px;letter-spacing:.32em;text-transform:uppercase;padding:18px 30px;border:1px solid rgba(217,164,140,.55);border-radius:999px;color:var(--fg);transition:background .35s,color .35s,border-color .35s}
+.btn:hover{background:var(--rose);color:#fff;border-color:var(--rose)}
+.btn svg{width:16px;height:16px}
+.grain{pointer-events:none;position:fixed;inset:-50%;z-index:60;opacity:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:26px clamp(20px,4vw,56px);transition:background .4s,padding .4s}
+nav.solid{background:rgba(255,255,255,.86);color:var(--fg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding-block:16px;border-bottom:1px solid var(--line)}
+.logo{display:flex;flex-direction:column;line-height:1}
+.logo b{font-family:var(--wide);font-weight:300;font-size:19px;letter-spacing:.38em}
+.logo small{font-family:var(--wide);font-weight:300;font-size:8px;letter-spacing:.62em;color:var(--rose);margin-top:6px}
+.links{display:flex;gap:clamp(18px,2.6vw,40px)}
+.links a{font-family:var(--wide);font-weight:300;font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:rgba(29,22,19,.75);transition:color .3s}
+.links a:hover{color:var(--rose-lt)}
+
+/* HERO */
+.hero{position:relative;height:100vh;height:100svh;overflow:hidden}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.12)}
+.shade{position:absolute;inset:0;background:#050302;--y:14%;--w:7%;
+  -webkit-mask-image:linear-gradient(to bottom,#000 calc(var(--y) - var(--w)*1.6),transparent calc(var(--y) - var(--w)*.35),transparent calc(var(--y) + var(--w)*.35),#000 calc(var(--y) + var(--w)*1.6));
+  mask-image:linear-gradient(to bottom,#000 calc(var(--y) - var(--w)*1.6),transparent calc(var(--y) - var(--w)*.35),transparent calc(var(--y) + var(--w)*.35),#000 calc(var(--y) + var(--w)*1.6))}
+.hero-vig{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 40%,transparent 40%,rgba(5,3,2,.85) 100%)}
+.hero-word{padding-top:.3em;position:absolute;left:50%;bottom:27vh;transform:translateX(-50%);font-family:var(--wide);font-weight:200;font-size:clamp(64px,13.5vw,250px);letter-spacing:.06em;line-height:.8;white-space:nowrap;opacity:.95}
+.hero-copy{position:absolute;left:clamp(20px,4vw,56px);bottom:clamp(28px,6vh,64px);max-width:330px;z-index:2}
+.hero-copy p{font-size:14px;color:rgba(29,22,19,.78);margin:14px 0 22px;font-weight:300}
+.hero-side{position:absolute;right:clamp(20px,4vw,56px);bottom:clamp(28px,6vh,64px);text-align:right;z-index:2}
+.hero-side .serif{font-family:var(--serif);font-size:clamp(22px,2.2vw,32px);line-height:1.1}
+.hero-side span{display:block;font-family:var(--wide);font-size:9px;letter-spacing:.4em;color:var(--muted);margin-top:8px;text-transform:uppercase}
+.scroll-cue{position:absolute;left:50%;top:clamp(90px,14vh,130px);transform:translateX(-50%);font-family:var(--wide);font-size:9px;letter-spacing:.5em;color:rgba(29,22,19,.5);text-transform:uppercase}
+
+/* SOBRE */
+.sobre{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:100vh;align-items:center;padding:clamp(90px,12vh,140px) clamp(20px,6vw,90px);gap:clamp(30px,5vw,80px)}
+.vert{position:absolute;left:clamp(4px,1.5vw,24px);top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:center;font-family:var(--wide);font-weight:200;font-size:clamp(40px,6vw,92px);letter-spacing:.12em;color:transparent;-webkit-text-stroke:1px rgba(29,22,19,.22);white-space:nowrap;width:0;display:flex;justify-content:center}
+.sobre-txt{padding-left:clamp(40px,6vw,90px)}
+.sobre h2{font-family:var(--wide);font-weight:300;font-size:clamp(26px,3vw,44px);line-height:1.12;letter-spacing:.02em;margin:18px 0 24px;text-transform:uppercase}
+.sobre h2 em{font-style:normal}
+.sobre p{color:rgba(29,22,19,.72);font-weight:300;max-width:460px;margin-bottom:14px}
+.sign{font-family:var(--serif);font-size:30px;color:var(--rose-lt);margin-top:20px}
+.stats{display:grid;grid-template-columns:repeat(3,auto);gap:clamp(18px,3vw,44px);margin-top:36px;padding-top:28px;border-top:1px solid var(--line);max-width:480px}
+.stats b{display:block;font-family:var(--wide);font-weight:200;font-size:clamp(28px,3vw,42px);line-height:1}
+.stats span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.sobre-art{position:relative;height:min(82vh,760px)}
+.strip{position:absolute;top:0;width:34%;height:72%;overflow:hidden;border-radius:2px}
+.strip img{width:100%;height:100%;object-fit:cover;filter:saturate(.8) brightness(.8)}
+.strip.s1{left:2%}.strip.s1 img{object-position:50% 50%}
+.strip.s2{right:2%}.strip.s2 img{object-position:50% 50%}
+.portrait{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:62%;height:86%;overflow:hidden;
+  -webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent);mask-image:linear-gradient(to bottom,#000 70%,transparent)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.ghost{position:absolute;font-family:var(--serif);font-size:clamp(60px,9vw,150px);color:rgba(29,22,19,.07);top:36%;left:-4%;right:-4%;display:flex;justify-content:space-between;pointer-events:none}
+
+/* PROCEDIMENTOS */
+.proc-intro{text-align:center;padding:clamp(80px,14vh,150px) 20px clamp(40px,6vh,70px)}
+.proc-intro h2{font-family:var(--wide);font-weight:200;font-size:clamp(30px,5vw,70px);letter-spacing:.06em;text-transform:uppercase;line-height:1.05;margin-top:18px}
+.proc{position:relative;height:100vh;min-height:620px;overflow:hidden;display:flex;align-items:center}
+.proc>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.proc::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,4,3,.92) 0%,rgba(6,4,3,.55) 38%,transparent 65%)}
+.proc.rev::after{background:linear-gradient(270deg,rgba(6,4,3,.92) 0%,rgba(6,4,3,.55) 38%,transparent 65%)}
+.proc .big{position:absolute;bottom:4vh;font-family:var(--wide);font-weight:200;font-size:clamp(70px,15vw,250px);line-height:.85;letter-spacing:.04em;white-space:nowrap;z-index:2;opacity:.9}
+.proc .big{right:-3vw}
+.proc.rev .big{left:-3vw;right:auto}
+.proc-box{position:relative;z-index:3;margin-left:clamp(20px,7vw,110px);max-width:420px}
+.proc.rev .proc-box{margin-left:auto;margin-right:clamp(20px,7vw,110px)}
+.num{font-family:var(--wide);font-weight:200;font-size:13px;letter-spacing:.3em;color:var(--rose)}
+.proc h3{font-family:var(--wide);font-weight:300;font-size:clamp(26px,3vw,42px);text-transform:uppercase;letter-spacing:.04em;line-height:1.1;margin:14px 0 18px}
+.proc p{color:rgba(29,22,19,.78);font-weight:300;margin-bottom:22px}
+.meta{display:flex;gap:28px;flex-wrap:wrap;padding-top:18px;border-top:1px solid var(--line)}
+.meta div span{display:block;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+.meta div b{font-weight:500;font-size:15px}
+
+/* RESULTADOS */
+.res{padding:clamp(90px,14vh,150px) clamp(20px,6vw,90px)}
+.res-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:44px}
+.res-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(46px,7vw,110px);line-height:.95}
+.res-head p{max-width:360px;color:rgba(29,22,19,.7);font-weight:300}
+.compare{position:relative;aspect-ratio:16/8;overflow:hidden;border-radius:4px;cursor:ew-resize;user-select:none;touch-action:pan-y}
+.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.compare .after{clip-path:inset(0 0 0 var(--p,50%))}
+.handle{position:absolute;top:0;bottom:0;left:var(--p,50%);width:1px;background:var(--rose-lt);transform:translateX(-.5px)}
+.handle i{position:absolute;top:50%;left:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;border:1px solid var(--rose-lt);background:rgba(7,5,4,.55);backdrop-filter:blur(6px);display:grid;place-items:center;font-style:normal;font-family:var(--wide);font-size:12px;letter-spacing:.1em}
+.tag{position:absolute;top:22px;font-family:var(--wide);font-size:10px;letter-spacing:.4em;text-transform:uppercase;padding:8px 14px;background:rgba(7,5,4,.6);border-radius:999px}
+.tag.l{left:22px}.tag.r{right:22px}
+
+.galeria{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.galeria figure{aspect-ratio:4/5;overflow:hidden;border-radius:4px}.galeria img{width:100%;height:100%;object-fit:cover;transition:transform .8s}.galeria figure:hover img{transform:scale(1.04)}
+@media(max-width:760px){.galeria{grid-template-columns:1fr 1fr}}
+/* ESTUDIO */
+.estudio{position:relative;height:110vh;overflow:hidden;display:flex;align-items:center;text-align:left;padding-left:clamp(20px,7vw,110px)}
+.estudio::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,4,3,.9),rgba(6,4,3,.4) 45%,transparent 70%)}
+.estudio img{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;filter:brightness(.6)}
+.estudio .in{position:relative;z-index:2;padding:0 20px}
+.estudio h2{font-family:var(--serif);font-weight:400;font-size:clamp(48px,8vw,128px);line-height:.95;margin:18px 0 20px}
+.estudio p{color:rgba(29,22,19,.8);max-width:400px;font-weight:300}
+.estudio .in{z-index:3}
+
+/* PASSOS */
+.passos{padding:clamp(90px,14vh,150px) clamp(20px,6vw,90px);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+.passo{background:var(--bg);padding:clamp(28px,3vw,48px) clamp(20px,2.4vw,36px) clamp(36px,4vw,56px)}
+.passo b{font-family:var(--wide);font-weight:200;font-size:clamp(50px,6vw,92px);line-height:1;display:block;margin-bottom:22px}
+.passo h4{font-family:var(--wide);font-weight:300;font-size:15px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
+.passo p{color:rgba(29,22,19,.68);font-weight:300;font-size:15px}
+.passos-wrap{padding:0 clamp(20px,6vw,90px)}
+.passos-title{padding:clamp(90px,14vh,150px) clamp(20px,6vw,90px) 0}
+.passos-title h2{font-family:var(--wide);font-weight:200;font-size:clamp(30px,4.5vw,64px);text-transform:uppercase;letter-spacing:.05em;margin-top:16px}
+.passos{padding-top:44px;background:none;gap:0}
+.passo{border-top:1px solid var(--line)}
+.passo+.passo{border-left:1px solid var(--line)}
+
+/* DEPOIMENTOS */
+.dep{padding:clamp(90px,14vh,150px) clamp(20px,6vw,90px);display:grid;grid-template-columns:1fr 2fr;gap:clamp(30px,5vw,80px);align-items:start}
+.nota{font-family:var(--wide);font-weight:200;font-size:clamp(80px,10vw,160px);line-height:.9}
+.stars{color:var(--rose);letter-spacing:.3em;font-size:18px;margin:12px 0 8px}
+.dep small{color:var(--muted);font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.quotes{display:grid;gap:34px}
+.q{padding-bottom:30px;border-bottom:1px solid var(--line)}
+.q p{font-family:var(--serif);font-size:clamp(22px,2.2vw,32px);line-height:1.3}
+.q span{display:block;margin-top:12px;font-family:var(--wide);font-size:10px;letter-spacing:.36em;color:var(--rose);text-transform:uppercase}
+
+/* AGENDA */
+.agenda{position:relative;min-height:100vh;display:grid;place-items:center;text-align:center;overflow:hidden;padding:120px 20px}
+.agenda>img{position:absolute;right:0;top:0;height:100%;width:60%;object-fit:cover;object-position:30% 40%;opacity:.35;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 60%);mask-image:linear-gradient(90deg,transparent,#000 60%)}
+.agenda .in{position:relative;z-index:2}
+.agenda .mes{font-family:var(--txt);font-weight:300;font-size:clamp(20px,2.4vw,34px);letter-spacing:.02em}
+.agenda .line{width:min(520px,80vw);height:1px;margin:22px auto 6px;background:linear-gradient(90deg,transparent,#fff4ec,transparent);box-shadow:0 0 18px 2px rgba(255,230,210,.55)}
+.agenda h2{font-family:var(--serif);font-weight:400;font-size:clamp(90px,18vw,280px);line-height:.95;letter-spacing:.02em}
+.agenda p{color:rgba(29,22,19,.72);margin:14px auto 34px;max-width:420px;font-weight:300}
+
+footer{border-top:1px solid var(--line);padding:56px clamp(20px,6vw,90px) 40px;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:30px;font-size:14px;color:rgba(29,22,19,.7)}
+footer h5{font-family:var(--wide);font-weight:400;font-size:10px;letter-spacing:.36em;text-transform:uppercase;color:var(--rose);margin-bottom:14px}
+.credit{grid-column:1/-1;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:30px;margin-top:10px;border-top:1px solid var(--line);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+.rv{opacity:0;transform:translateY(34px)}
+
+@media (max-width:900px){
+  .links{display:none}
+  .hero-img{object-position:50% 40%}
+  .hero-word{font-size:22vw;bottom:auto;top:62%}
+  .hero-side{display:none}
+  .hero-copy{right:20px;max-width:none}
+  .sobre{grid-template-columns:1fr;padding-top:100px}
+  .sobre-txt{padding-left:0;order:2}
+  .vert{display:none}
+  .sobre-art{height:70vh;order:1}
+  .proc{display:block;height:auto;min-height:0;padding-bottom:80px}
+  .proc>img{position:relative;inset:auto;height:64vh;object-position:var(--mp,50% 50%)}
+  .proc::after,.proc.rev::after{top:0;bottom:auto;height:64vh;background:linear-gradient(0deg,var(--bg) 0%,rgba(7,5,4,.35) 28%,transparent 50%)}
+  .proc-box,.proc.rev .proc-box{margin:-18px 20px 0}
+  .proc .big,.proc.rev .big{top:calc(64vh - 24vw);bottom:auto;font-size:22vw;left:-2vw;right:auto}
+  .estudio{height:88vh}
+  .estudio img{filter:brightness(.8);object-position:62% 60%}
+  .compare{aspect-ratio:4/5}
+  .passos{grid-template-columns:1fr}
+  .passo+.passo{border-left:0}
+  .dep{grid-template-columns:1fr}
+  .agenda>img{width:100%;opacity:.22}
+  .estudio{align-items:flex-end;padding-bottom:16vh}
+  .estudio::after{background:linear-gradient(0deg,rgba(6,4,3,.95),rgba(6,4,3,.5) 50%,transparent 80%)}
+  footer{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+
+nav{color:#f4ece6}nav .links a{color:rgba(244,236,230,.8)}nav.solid .links a{color:rgba(29,22,19,.7)}
+.strip img{filter:none}
+.agenda{background:var(--bg2)}
+.agenda .line{background:linear-gradient(90deg,transparent,var(--rose),transparent);box-shadow:none}
+.agenda>img{display:none}
+/* ===== v3 ===== */
+*,*::before,*::after{border-radius:0!important}
+.hero .hero-copy p,.hero .scroll-cue{color:rgba(244,236,230,.82)}
+.hero .hero-side span{color:#a8978c}
+nav .logo small{color:#d9a48c}nav.solid .logo small{color:var(--rose)}
+.btn{border-radius:0}
+.btn.cheio{background:var(--fg);color:#fff;border-color:var(--fg)}
+.btn.cheio:hover{background:var(--rose);border-color:var(--rose)}
+.tit{text-align:center;max-width:760px;margin:0 auto}
+.tit h2,.res-head h2,.aval-h h2{font-family:var(--serif);font-weight:400;font-size:clamp(46px,6.4vw,100px);line-height:.98;margin-top:14px}
+/* procedimentos e estúdio: original do Fratta Lash (escuro, foto inteira) */
+.proc,.estudio{background:#070504;color:#f4ece6}
+.proc p,.estudio p{color:rgba(244,236,230,.78)!important}
+.proc .meta{border-top-color:rgba(244,236,230,.14)}.proc .meta div span{color:#a8978c}
+.proc .num{color:#d9a48c}
+.proc .gold,.estudio .gold{background:var(--goldhero);-webkit-background-clip:text;background-clip:text}
+.estudio .kicker,.proc .kicker{color:#d9a48c}
+.estudio img{filter:brightness(.6)}
+/* do que você precisa: retângulos */
+.pas{padding:clamp(100px,14vh,160px) clamp(20px,6vw,90px) clamp(60px,8vh,100px)}
+.faixas{max-width:1120px;margin:clamp(50px,6vw,80px) auto 0;display:grid;gap:22px}
+.faixa{position:relative;height:clamp(230px,20vw,290px);overflow:hidden;display:flex;align-items:center;padding-left:8%;color:#fff;background:#070504}
+.faixa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.faixa:hover img{transform:scale(1.05)}
+.faixa::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,8,6,.86) 0%,rgba(12,8,6,.55) 45%,rgba(12,8,6,.1) 100%)}
+.faixa .mk{position:relative;z-index:2;max-width:58%}
+.faixa .mk small{font-family:var(--wide);font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:#d9a48c}
+.faixa .mk b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(34px,3.4vw,52px);line-height:1;margin:10px 0 12px}
+.faixa .mk em{display:block;font-style:normal;font-size:16px;color:rgba(244,236,230,.85);max-width:44ch}
+.faixa .ir{position:absolute;z-index:2;right:24px;bottom:24px;padding:15px 22px;background:#f4ece6;color:#1d1613;font-family:var(--wide);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;transition:background .3s,color .3s}
+.faixa:hover .ir{background:var(--rose);color:#fff}
+/* feito aqui: grade de cartões (modelo resorts do Neto) */
+.res{padding:clamp(70px,10vh,120px) clamp(20px,6vw,90px) clamp(100px,14vh,160px)}
+.res-head{align-items:flex-end}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(clamp(180px,16vw,250px),auto);grid-auto-flow:dense;gap:clamp(10px,1.2vw,18px)}
+.bento .g{grid-column:span 2;grid-row:span 2}.bento .t{grid-row:span 2}.bento .w{grid-column:span 2}
+.bcard{position:relative;overflow:hidden;margin:0;background:#070504;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:20px 18px}
+.bcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.bcard:hover img{transform:scale(1.06)}
+.bcard::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(12,8,6,.85) 0%,rgba(12,8,6,.35) 38%,rgba(12,8,6,0) 65%)}
+.bcard>span{position:relative;z-index:2;display:block}
+.bcard small{font-family:var(--wide);font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:#d9a48c}
+.bcard b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(24px,2vw,32px);line-height:1.05;margin-top:6px}
+.bcard.cta{background:var(--rose);justify-content:center;padding:28px clamp(22px,3vw,44px)}
+.bcard.cta::after{display:none}
+.bcard.cta small{color:#fff}
+.bcard.cta b{font-size:clamp(30px,2.8vw,44px)}
+.bcard.cta p{position:relative;z-index:2;font-size:15px;line-height:1.55;margin-top:10px;opacity:.95}
+.bcard.cta em{display:inline-block;font-style:normal;font-family:var(--wide);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;margin-top:16px;padding-bottom:4px;border-bottom:1px solid #fff}
+/* como funciona: linha que desce (modelo do Neto) */
+.dia{background:var(--bg2);padding:clamp(100px,14vh,160px) clamp(20px,6vw,90px)}
+.dia .tit{margin-bottom:clamp(60px,7vw,100px)}
+.linha{position:relative;max-width:1080px;margin:0 auto}
+.linha .eixo{position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--line)}
+.linha .eixo i{position:absolute;inset:0;background:var(--rose);transform-origin:top;transform:scaleY(0)}
+.passo{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(50px,8vw,120px);align-items:center;margin-bottom:clamp(60px,7vw,100px);background:none;padding:0;border:0!important}
+.passo:last-child{margin-bottom:0}
+.passo .ponto{position:absolute;left:50%;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;background:var(--rose);border:4px solid var(--bg2);box-shadow:0 0 0 1px var(--rose);z-index:2}
+.passo .img{overflow:hidden;aspect-ratio:4/3.4}
+.passo .img img{width:100%;height:100%;object-fit:cover}
+.passo .tx b{font-family:var(--wide);font-weight:200;font-size:64px;line-height:1;display:block;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent;margin:0}
+.passo .tx h3{font-family:var(--serif);font-weight:400;font-size:clamp(32px,3vw,46px);line-height:1.05;margin:10px 0 12px}
+.passo .tx p{color:rgba(29,22,19,.7);max-width:40ch;font-size:16px}
+.passo:nth-child(odd of .passo) .img{order:2}
+.passo:nth-child(odd of .passo) .tx{text-align:right;justify-self:end}
+.passo:nth-child(odd of .passo) .tx p{margin-left:auto}
+/* avaliações + mapa */
+.aval{padding:clamp(100px,14vh,160px) clamp(20px,6vw,90px)}
+.aval-h{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:clamp(40px,5vw,64px)}
+.nota{display:flex;align-items:center;gap:16px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.nota .g{width:42px;height:42px}
+.nota b{font-family:var(--wide);font-weight:300;font-size:56px;line-height:1}
+.nota small{display:block;color:var(--muted);font-size:13.5px;line-height:1.4;margin-top:4px}
+.st{color:#fbbc04;letter-spacing:.1em;font-size:17px}
+.mural{columns:3;column-gap:20px}
+.mural>*{break-inside:avoid;margin:0 0 20px}
+.depo{background:var(--bg2);padding:28px 26px 24px}
+.dep-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.dep-top .g{width:20px;height:20px}
+.depo p{font-size:17px;line-height:1.6;margin-bottom:20px}
+.quem-av{display:flex;align-items:center;gap:12px}
+.quem-av .av{width:40px;height:40px;display:grid;place-items:center;color:#fff;font-family:var(--wide);font-size:15px}
+.quem-av b{display:block;font-size:15.5px;line-height:1.2}
+.quem-av small{color:var(--muted);font-size:13px}
+.mfoto{position:relative}
+.mfoto img{width:100%}
+.mfoto figcaption{position:absolute;left:0;bottom:0;background:#1d1613;color:#fff;padding:9px 14px;font-family:var(--wide);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase}
+.onde{display:grid;grid-template-columns:.9fr 1.4fr;margin-top:clamp(50px,6vw,90px);border:1px solid var(--line);background:#fff}
+.onde-tx{padding:clamp(28px,4vw,56px);display:flex;flex-direction:column;justify-content:center;gap:12px}
+.onde-tx h3{font-family:var(--serif);font-weight:400;font-size:clamp(32px,3vw,46px);line-height:1.05}
+.onde-tx p{font-size:16px;line-height:1.6}
+.onde-tx .mut{color:var(--muted);font-size:14px}
+.onde-tx .btn{align-self:flex-start;margin-top:10px}
+.mapa{min-height:420px;background:var(--bg2)}
+.mapa iframe{width:100%;height:100%;min-height:420px;border:0;display:block;filter:grayscale(.35) contrast(1.05)}
+/* final + rodapé sobre a mesma foto */
+.final{position:relative;overflow:hidden;color:#f4ece6}
+.final-img{position:absolute;inset:-10% 0 0;width:100%;height:110%;object-fit:cover;object-position:50% 40%}
+.final::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,8,6,.55) 0%,rgba(12,8,6,.7) 55%,rgba(12,8,6,.92) 100%)}
+.final .agenda,.final footer{position:relative;z-index:2;background:none}
+.final .agenda{min-height:92vh}
+.final .agenda p{color:rgba(244,236,230,.82)}
+.final .agenda .gold{background:var(--goldhero);-webkit-background-clip:text;background-clip:text}
+.final .agenda .line{background:linear-gradient(90deg,transparent,#f6d6c4,transparent)}
+.final .btn.cheio{background:#f4ece6;color:#1d1613;border-color:#f4ece6}
+.final footer{color:rgba(244,236,230,.78);border-top:1px solid rgba(244,236,230,.18)}
+.final footer h5{color:#d9a48c}.final .logo small{color:#d9a48c}
+.final .credit{color:rgba(244,236,230,.55);border-top-color:rgba(244,236,230,.18)}
+@media (max-width:900px){
+  .faixa{height:auto;min-height:280px;padding:26px 22px 86px;align-items:flex-start}
+  .faixa .mk{max-width:100%}
+  .faixa .ir{left:22px;right:auto}
+  .bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:minmax(170px,auto);gap:10px}
+  .bcard{padding:14px 12px}
+  .linha .eixo{left:8px}
+  .passo{grid-template-columns:1fr;gap:20px;padding-left:36px}
+  .passo .ponto{left:8px;top:22px}
+  .passo:nth-child(odd of .passo) .img{order:0}
+  .passo:nth-child(odd of .passo) .tx{text-align:left;justify-self:start}
+  .passo:nth-child(odd of .passo) .tx p{margin-left:0}
+  .passo .tx b{font-size:48px}
+  .mural{columns:1}
+  .onde{grid-template-columns:1fr}
+  .mapa,.mapa iframe{min-height:320px}
+  .final footer{grid-template-columns:1fr 1fr}
+}
+
+/* avaliações num quadro fechado */
+.quadro{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,clamp(220px,20vw,330px));gap:14px;
+  grid-template-areas:"q1 q1 f1 f2" "f3 q3 f1 q2" "f3 f4 f4 q2"}
+.quadro .q1{grid-area:q1}.quadro .q2{grid-area:q2}.quadro .q3{grid-area:q3}
+.quadro .f1{grid-area:f1}.quadro .f2{grid-area:f2}.quadro .f3{grid-area:f3}.quadro .f4{grid-area:f4}
+.quadro .depo{display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.quadro .q1{background:#1d1613;color:#f4ece6}.quadro .q1 p{font-family:var(--serif);font-size:clamp(22px,2vw,30px);line-height:1.25}.quadro .q1 small{color:#a8978c}
+.quadro .q3{background:var(--rose);color:#fff}.quadro .q3 p{font-family:var(--serif);font-size:clamp(22px,2vw,30px);line-height:1.15}.quadro .q3 small{color:rgba(255,255,255,.8)}
+.quadro .q3 .av{background:#1d1613!important}
+.quadro .mfoto{margin:0;overflow:hidden}
+.quadro .mfoto img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.quadro .mfoto:hover img{transform:scale(1.05)}
+.onde{grid-template-columns:1fr 1fr}
+.mapa{aspect-ratio:1/1;min-height:0}
+.mapa iframe{height:100%;min-height:0}
+@media (max-width:900px){
+  .quadro{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:minmax(160px,auto);grid-template-areas:"q1 q1" "f1 f2" "f1 q3" "q2 q2" "f3 f4"}
+  .quadro .f4{aspect-ratio:auto}
+  .onde{grid-template-columns:1fr}
+}
+
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<nav id="nav">
+  <a href="#topo" class="logo"><b>TÂMARA</b><small>LASH DESIGNER</small></a>
+  <div class="links">
+    <a href="#sobre">Sobre</a><a href="#procedimentos">Procedimentos</a><a href="#servicos">Serviços</a><a href="#resultados">Resultados</a><a href="#avaliacoes">Avaliações</a><a href="#agenda">Agendar</a>
+  </div>
+</nav>
+
+<header class="hero" id="topo">
+  <img class="hero-img" src="assets/01-capa.jpg" alt="Olhar com extensão de cílios iluminado por uma faixa de luz">
+  <div class="shade" id="shade"></div>
+  <div class="hero-vig"></div>
+  <div class="scroll-cue" id="cue">Role para revelar</div>
+  <div class="hero-word gold" id="heroWord">TÂMARA</div>
+  <div class="hero-copy rv-hero">
+    <span class="kicker">Lash designer · Maceió</span>
+    <p>Cílios feitos fio a fio, no desenho do seu olhar. Naturais de perto, marcantes de longe.</p>
+    <a class="btn" href="https://wa.me/5582994352796?text=Ol%C3%A1%2C%20T%C3%A2mara!%20Vim%20pelo%20site%20e%20queria%20agendar%20um%20hor%C3%A1rio" target="_blank" rel="noopener">Agendar horário
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+  <div class="hero-side rv-hero">
+    <div class="serif">Tire um momento<br>para você</div>
+    <span>Ponta Verde · Maceió</span>
+  </div>
+</header>
+
+<section class="sobre" id="sobre">
+  <div class="vert">SOBRE</div>
+  <div class="sobre-txt">
+    <span class="kicker rv">A lash designer</span>
+    <h2 class="rv">Cílios com <em class="gold">acabamento natural</em> na Ponta Verde</h2>
+    <p class="rv">Sou a Tâmara, lash designer aqui na Ponta Verde. Meu trabalho é deixar o seu olhar marcado sem perder a naturalidade, no desenho do seu olho.</p>
+    <p class="rv">Cada aplicação é feita com calma, carinho e hora marcada. Tem cliente que faz comigo há cinco anos, e é esse cuidado que faz elas voltarem.</p>
+        <div class="sign rv">Tâmara Santos</div>
+    <div class="stats rv">
+      <div><b class="gold">5,0</b><span>No Google</span></div>
+      <div><b class="gold">35</b><span>Avaliações</span></div>
+      <div><b class="gold">5★</b><span>Em todas</span></div>
+    </div>
+  </div>
+  <div class="sobre-art" id="sobreArt">
+    <div class="ghost"><span>lash</span><span>art</span></div>
+    <div class="strip s1"><img src="assets/s1.jpg" alt=""></div>
+    <div class="strip s2"><img src="assets/s2.jpg" alt=""></div>
+    <div class="portrait"><img src="assets/02-profissional.jpg" alt="Extensão de cílios feita pela Tâmara"></div>
+  </div>
+</section>
+
+<div id="procedimentos" class="proc-intro">
+  <span class="kicker rv">Procedimentos</span>
+  <h2 class="rv">Um olhar para<br><span class="gold">cada estilo</span></h2>
+</div>
+
+<section class="proc">
+  <img src="assets/04-fio-a-fio.jpg" alt="Extensão fio a fio" data-par style="--mp:58% 48%">
+  <div class="big gold" data-slide="-1">FIO A FIO</div>
+  <div class="proc-box">
+    <span class="num rv">01</span>
+    <h3 class="rv">Fio a fio clássico</h3>
+    <p class="rv">Um fio sintético aplicado em cada cílio natural. Alonga e define sem pesar, para quem quer acordar pronta e ainda assim parecer natural.</p>
+    <div class="meta rv"><div><span>Duração</span><b>1h30</b></div><div><span>Manutenção</span><b>15 a 20 dias</b></div><div><span>Ideal para</span><b>Dia a dia</b></div></div>
+  </div>
+</section>
+
+<section class="proc rev">
+  <img src="assets/05-volume-russo.jpg" alt="Volume russo" data-par style="--mp:30% 50%">
+  <div class="big gold" data-slide="1">VOLUME</div>
+  <div class="proc-box">
+    <span class="num rv">02</span>
+    <h3 class="rv">Volume russo</h3>
+    <p class="rv">Leques de fios ultrafinos feitos à mão para um olhar cheio, escuro e marcante. O efeito de rímel o tempo todo, sem borrar.</p>
+    <div class="meta rv"><div><span>Duração</span><b>2h30</b></div><div><span>Manutenção</span><b>20 dias</b></div><div><span>Ideal para</span><b>Impacto</b></div></div>
+  </div>
+</section>
+
+<section class="proc">
+  <img src="assets/06-lash-lifting.jpg" alt="Lash lifting e sobrancelha" data-par style="--mp:30% 42%">
+  <div class="big gold" data-slide="-1">LIFTING</div>
+  <div class="proc-box">
+    <span class="num rv">03</span>
+    <h3 class="rv">Lash lifting &amp; sobrancelha</h3>
+    <p class="rv">Curvamos e escurecemos os seus próprios cílios, sem extensão. Junto com o design de sobrancelha, emoldura o rosto por semanas.</p>
+    <div class="meta rv"><div><span>Duração</span><b>1h</b></div><div><span>Dura</span><b>6 a 8 semanas</b></div><div><span>Ideal para</span><b>Praticidade</b></div></div>
+  </div>
+</section>
+
+<section class="pas" id="servicos">
+  <div class="tit"><span class="kicker rv">Pra cada momento</span><h2 class="rv">Do que você <span class="gold">precisa?</span></h2></div>
+  <div class="faixas"><a class="faixa rv" href="https://wa.me/5582994352796?text=Ol%C3%A1%2C%20T%C3%A2mara%21%20Vim%20pelo%20site%20e%20queria%20fazer%20c%C3%ADlios%20pro%20dia%20a%20dia." target="_blank" rel="noopener"><img src="assets/fx1.jpg" alt="" style="object-position:50% 50%"><span class="mk"><small>Pro dia a dia</small><b>Acordar pronta, com cara de cílio seu</b><em>Fio a fio leve, que marca o olhar sem pesar e sem precisar de rímel.</em></span><span class="ir">Quero pro dia a dia →</span></a><a class="faixa rv" href="https://wa.me/5582994352796?text=Ol%C3%A1%2C%20T%C3%A2mara%21%20Vim%20pelo%20site%20e%20queria%20c%C3%ADlios%20pra%20uma%20ocasi%C3%A3o%20especial." target="_blank" rel="noopener"><img src="assets/fx2.jpg" alt="" style="object-position:50% 50%"><span class="mk"><small>Festa, casamento ou foto</small><b>Um olhar marcante pra ocasião</b><em>Volume que aparece de longe e aguenta a festa inteira, do jeito que você imaginou.</em></span><span class="ir">Quero pra uma ocasião →</span></a><a class="faixa rv" href="https://wa.me/5582994352796?text=Ol%C3%A1%2C%20T%C3%A2mara%21%20Vim%20pelo%20site%20e%20queria%20fazer%20lash%20lifting." target="_blank" rel="noopener"><img src="assets/fx3.jpg" alt="" style="object-position:50% 50%"><span class="mk"><small>Sem extensão</small><b>Seus próprios cílios, curvados</b><em>Lash lifting com design de sobrancelha pra emoldurar o rosto por semanas.</em></span><span class="ir">Quero o lifting →</span></a></div>
+</section>
+
+<section class="res" id="resultados">
+  <div class="res-head">
+    <div><span class="kicker rv">Resultados</span><h2 class="rv">Feito<br><span class="gold">aqui</span></h2></div>
+    <p class="rv">A ideia nunca é mudar quem você é, é deixar o seu olhar do jeito que ele sempre quis ser visto.</p>
+  </div>
+  <div class="bento"><figure class="bcard g"><img src="assets/b1.jpg" alt="Olhar natural"><span><small>Resultado</small><b>Olhar natural</b></span></figure><figure class="bcard t"><img src="assets/b2.jpg" alt="Saindo do studio"><span><small>Cliente</small><b>Saindo do studio</b></span></figure><figure class="bcard "><img src="assets/b3.jpg" alt="Durante a aplicação"><span><small>Na maca</small><b>Durante a aplicação</b></span></figure><figure class="bcard "><img src="assets/b4.jpg" alt="Fio por fio"><span><small>Detalhe</small><b>Fio por fio</b></span></figure><figure class="bcard w"><img src="assets/b5.jpg" alt="Volume marcante"><span><small>Resultado</small><b>Volume marcante</b></span></figure><figure class="bcard t"><img src="assets/b6.jpg" alt="Curvatura perfeita"><span><small>Detalhe</small><b>Curvatura perfeita</b></span></figure><figure class="bcard "><img src="assets/b7.jpg" alt="Efeito delineado"><span><small>Resultado</small><b>Efeito delineado</b></span></figure><a class="bcard cta w" href="https://wa.me/5582994352796?text=Ol%C3%A1%2C%20T%C3%A2mara%21%20Vim%20pelo%20site%20e%20quero%20um%20olhar%20assim%2C%20tem%20hor%C3%A1rio%3F" target="_blank" rel="noopener"><span><small>Gostou?</small><b>Quer um olhar assim?</b></span><p>Me chama no WhatsApp que eu vejo o melhor horário pra você.</p><span><em>Agendar agora →</em></span></a><figure class="bcard"><img src="assets/b9.jpg" alt="Cliente depois do atendimento"><span><small>Cliente</small><b>Pós-atendimento</b></span></figure></div>
+</section>
+
+<section class="estudio">
+  <img src="assets/03-estudio.jpg" alt="Studio de cílios" data-par>
+  <div class="in">
+    <span class="kicker rv">O estúdio</span>
+    <h2 class="rv">Um tempo<br><span class="gold">só seu</span></h2>
+    <p class="rv">Você fica deitada e relaxando enquanto a aplicação acontece. Tudo com hora marcada, sem pressa e sem espera.</p>
+  </div>
+</section>
+
+<section class="dia" id="passos">
+  <div class="tit"><span class="kicker rv">Como funciona</span><h2 class="rv">Do primeiro contato<br>ao <span class="gold">olhar pronto</span></h2></div>
+  <div class="linha"><div class="eixo"><i id="eixo"></i></div><div class="passo"><span class="ponto"></span><div class="img"><img src="assets/d1.jpg" alt=""></div><div class="tx"><b>01</b><h3>Você me chama</h3><p>Me conta no WhatsApp o efeito que você quer e a gente já combina o melhor dia e horário.</p></div></div><div class="passo"><span class="ponto"></span><div class="img"><img src="assets/x-profissional.jpg" alt=""></div><div class="tx"><b>02</b><h3>Mapeamento do seu olhar</h3><p>Antes de aplicar qualquer fio, eu olho o formato do seu olho e escolho a técnica e a curvatura certas.</p></div></div><div class="passo"><span class="ponto"></span><div class="img"><img src="assets/d3.jpg" alt=""></div><div class="tx"><b>03</b><h3>Aplicação sem pressa</h3><p>Você fica deitada e relaxando enquanto a aplicação acontece, com toda a calma.</p></div></div><div class="passo"><span class="ponto"></span><div class="img"><img src="assets/d4.jpg" alt=""></div><div class="tx"><b>04</b><h3>Manutenção marcada</h3><p>Te mando os cuidados por mensagem e a gente já deixa a manutenção na agenda.</p></div></div></div>
+</section>
+
+<section class="aval" id="avaliacoes">
+  <div class="aval-h">
+    <div><span class="kicker rv">Avaliações</span><h2 class="rv">O que as clientes <span class="gold">dizem</span></h2></div>
+    <div class="nota rv"><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.6 13.3l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.4 5.7c4.3-4 6.9-9.9 6.9-17.1z"/><path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.6 10.7l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.7c-2.1 1.4-4.8 2.3-8.5 2.3-6.3 0-11.6-4.1-13.5-9.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg><b>5,0</b><div><span class="st">★★★★★</span><small>35 avaliações no Google<br>todas com 5 estrelas</small></div></div>
+  </div>
+  <div class="quadro">
+    <div class="depo q1"><div class="dep-top"><span class="st">★★★★★</span><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.6 13.3l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.4 5.7c4.3-4 6.9-9.9 6.9-17.1z"/><path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.6 10.7l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.7c-2.1 1.4-4.8 2.3-8.5 2.3-6.3 0-11.6-4.1-13.5-9.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg></div><p>Simplesmente amei o resultado! Meus cílios ficaram perfeitos, exatamente como eu queria. O atendimento foi maravilhoso, com muito carinho, atenção e profissionalismo. Já virei fã!</p><div class="quem-av"><span class="av" style="background:#b47a61">M</span><div><b>Mariana Loiola</b><small>Avaliação no Google</small></div></div></div>
+    <figure class="mfoto f1"><img src="assets/m1.jpg" alt="Cliente com os cílios feitos"><figcaption>Cílios feitos no studio</figcaption></figure>
+    <figure class="mfoto f2"><img src="assets/m2.jpg" alt="Detalhe da extensão de cílios"></figure>
+    <figure class="mfoto f3"><img src="assets/m3.jpg" alt="Cliente na maca durante a aplicação"><figcaption>Durante a aplicação</figcaption></figure>
+    <div class="depo q3"><div class="dep-top"><span class="st">★★★★★</span><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.6 13.3l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.4 5.7c4.3-4 6.9-9.9 6.9-17.1z"/><path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.6 10.7l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.7c-2.1 1.4-4.8 2.3-8.5 2.3-6.3 0-11.6-4.1-13.5-9.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg></div><p>Excelente profissional. A melhor lash!</p><div class="quem-av"><span class="av" style="background:#9b6550">V</span><div><b>Valentina Arcanjo</b><small>Avaliação no Google</small></div></div></div>
+    <div class="depo q2"><div class="dep-top"><span class="st">★★★★★</span><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.6 13.3l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.4 5.7c4.3-4 6.9-9.9 6.9-17.1z"/><path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.6 10.7l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.7c-2.1 1.4-4.8 2.3-8.5 2.3-6.3 0-11.6-4.1-13.5-9.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg></div><p>Excelente profissional! Já faço serviço com a Tâmara há cinco anos e ela sempre entrega um resultado perfeito, com acabamento natural do jeitinho que eu gosto.</p><div class="quem-av"><span class="av" style="background:#6e4031">K</span><div><b>Karla Grazielly</b><small>Avaliação no Google</small></div></div></div>
+    <figure class="mfoto f4"><img src="assets/m4.jpg" alt="Lash lifting"><figcaption>Lash lifting</figcaption></figure>
+  </div>
+  <div class="onde">
+    <div class="onde-tx rv">
+      <span class="kicker">Onde fica</span>
+      <h3>Pertinho da orla da Ponta Verde</h3>
+      <p>Rua Dr. Noel Nutels, 287 · Loja 6<br>Ponta Verde · Maceió · AL</p>
+      <p class="mut">Atendimento com hora marcada</p>
+      <a class="btn cheio" href="https://www.google.com/maps/search/?api=1&query=Rua%20Dr.%20Noel%20Nutels%2C%20287%2C%20Ponta%20Verde%2C%20Macei%C3%B3%20-%20AL" target="_blank" rel="noopener">Abrir no Google Maps</a>
+    </div>
+    <div class="mapa rv"><iframe title="Mapa do studio" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Rua%20Dr.%20Noel%20Nutels%2C%20287%2C%20Ponta%20Verde%2C%20Macei%C3%B3%20-%20AL&z=16&output=embed"></iframe></div>
+  </div>
+</section>
+
+<div class="final">
+  <img class="final-img" src="assets/final.jpg" alt="">
+  <section class="agenda" id="agenda">
+    <div class="in">
+      <div class="mes rv">Agenda de fim de ano</div>
+      <div class="line rv"></div>
+      <h2 class="gold rv">Aberta</h2>
+      <p class="rv">Os horários antes das festas acabam primeiro. Me chama e garanta o seu.</p>
+      <a class="btn cheio rv" href="https://wa.me/5582994352796?text=Ol%C3%A1%2C%20T%C3%A2mara%21%20Vim%20pelo%20site%20e%20queria%20agendar%20um%20hor%C3%A1rio" target="_blank" rel="noopener">Agendar pelo WhatsApp
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </section>
+  <footer>
+    <div><a href="#topo" class="logo"><b>TÂMARA</b><small>LASH DESIGNER</small></a></div>
+    <div><h5>Endereço</h5>Rua Dr. Noel Nutels, 287 · Loja 6<br>Ponta Verde · Maceió · AL</div>
+    <div><h5>Horários</h5>Com hora marcada<br>Agendamento pelo WhatsApp</div>
+    <div><h5>Contato</h5>WhatsApp<br>(82) 99435-2796</div>
+    <div class="credit"><span>© 2026 Tâmara Santos · Lash Designer</span><span>Site por Frattini Labs</span></div>
+  </footer>
+</div>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const REC = location.search.includes('rec');
+let lenis;
+if(!reduce && !REC && window.Lenis){
+  lenis = new Lenis({lerp:.09});
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();lenis.scrollTo(a.getAttribute('href'),{offset:-40})}));
+}
+window.__lenis = lenis;
+
+const nav = document.getElementById('nav');
+
+
+// HERO: a faixa de luz desce da testa até os olhos e se abre
+const shade = document.getElementById('shade');
+const st = {y:12,w:6};
+const apply = ()=>{shade.style.setProperty('--y',st.y+'%');shade.style.setProperty('--w',st.w+'%')};
+apply();
+const tl = gsap.timeline({scrollTrigger:{trigger:'.hero',start:'top top',end:'+=140%',scrub:REC?true:1,pin:true}});
+tl.to(st,{y:43,w:9,ease:'none',onUpdate:apply,duration:1})
+  .to(st,{w:60,ease:'power1.in',onUpdate:apply,duration:.8})
+  .to('.hero-img',{scale:1,ease:'none',duration:1.8},0)
+  .fromTo('#heroWord',{letterSpacing:'0.5em',opacity:0},{letterSpacing:'0.06em',opacity:.95,ease:'power2.out',duration:1.2},0.2)
+  .to('#cue',{opacity:0,duration:.3},0);
+gsap.from('.rv-hero',{opacity:0,y:24,duration:1.2,delay:.3,stagger:.15,ease:'power3.out'});
+
+// revelações
+gsap.utils.toArray('.rv').forEach(el=>{
+  gsap.to(el,{opacity:1,y:0,duration:REC?.6:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}});
+});
+
+// parallax nas imagens grandes
+const MOB = matchMedia('(max-width:900px)').matches;
+gsap.utils.toArray('[data-par]').forEach(img=>{
+  if(MOB && img.closest('.proc')) return;
+  gsap.fromTo(img,{yPercent:-6,scale:1.12},{yPercent:6,scale:1.12,ease:'none',scrollTrigger:{trigger:img.parentElement,start:'top bottom',end:'bottom top',scrub:true}});
+});
+// palavras gigantes deslizam
+gsap.utils.toArray('[data-slide]').forEach(w=>{
+  const d = +w.dataset.slide;
+  gsap.fromTo(w,{xPercent:18*d*-1},{xPercent:-6*d*-1,ease:'none',scrollTrigger:{trigger:w.parentElement,start:'top bottom',end:'bottom top',scrub:true}});
+});
+// tiras do sobre
+gsap.fromTo('.strip.s1',{yPercent:12},{yPercent:-8,ease:'none',scrollTrigger:{trigger:'#sobreArt',start:'top bottom',end:'bottom top',scrub:true}});
+gsap.fromTo('.strip.s2',{yPercent:-4},{yPercent:14,ease:'none',scrollTrigger:{trigger:'#sobreArt',start:'top bottom',end:'bottom top',scrub:true}});
+
+//// antes e depois
+//const cmp = document.getElementById('compare');
+//const setP = x=>{const r=cmp.getBoundingClientRect();const p=Math.min(100,Math.max(0,(x-r.left)/r.width*100));cmp.style.setProperty('--p',p+'%')};
+//let drag=false;
+//cmp.addEventListener('pointerdown',e=>{drag=true;setP(e.clientX)});
+//addEventListener('pointermove',e=>{if(drag)setP(e.clientX)});
+//addEventListener('pointerup',()=>drag=false);
+//const sweep={p:78};
+//gsap.to(sweep,{p:30,ease:'power2.inOut',onUpdate:()=>cmp.style.setProperty('--p',sweep.p+'%'),scrollTrigger:{trigger:cmp,start:'top 75%',end:'bottom 45%',scrub:REC?true:1}});
+// ===== v3 =====
+ScrollTrigger.create({trigger:'#sobre',start:'top 72px',onEnter:()=>nav.classList.add('solid'),onLeaveBack:()=>nav.classList.remove('solid')});
+// retângulos entram deslizando, um de cada lado
+gsap.utils.toArray('.faixa').forEach((f,i)=>{
+  gsap.fromTo(f,{clipPath:i%2?'inset(0 0 0 100%)':'inset(0 100% 0 0)'},{clipPath:'inset(0 0% 0 0%)',duration:1.3,ease:'power3.inOut',scrollTrigger:{trigger:f,start:'top 82%'}});
+  gsap.fromTo(f.querySelector('img'),{scale:1.25},{scale:1,duration:1.8,ease:'power3.out',scrollTrigger:{trigger:f,start:'top 82%'}});
+});
+// cartões do "feito aqui" sobem em cascata
+gsap.from('.bcard',{y:60,opacity:0,stagger:.08,duration:1,ease:'power3.out',scrollTrigger:{trigger:'.bento',start:'top 80%'}});
+// linha do tempo se desenha descendo
+gsap.to('#eixo',{scaleY:1,ease:'none',scrollTrigger:{trigger:'.linha',start:'top 65%',end:'bottom 65%',scrub:true}});
+gsap.utils.toArray('.passo').forEach((p,i)=>{
+  gsap.fromTo(p.querySelector('.img'),{clipPath:i%2?'inset(0 100% 0 0)':'inset(0 0 0 100%)'},{clipPath:'inset(0 0% 0 0%)',duration:1.3,ease:'power3.inOut',scrollTrigger:{trigger:p,start:'top 80%'}});
+  gsap.fromTo(p.querySelector('.img img'),{scale:1.25},{scale:1,duration:1.8,ease:'power3.out',scrollTrigger:{trigger:p,start:'top 80%'}});
+  gsap.from(p.querySelector('.tx'),{opacity:0,y:30,duration:1.2,ease:'power3.out',delay:.15,scrollTrigger:{trigger:p,start:'top 80%'}});
+  gsap.from(p.querySelector('.ponto'),{scale:0,duration:.6,ease:'back.out(3)',scrollTrigger:{trigger:p,start:'top 65%'}});
+});
+gsap.fromTo('.final-img',{yPercent:-6},{yPercent:4,ease:'none',scrollTrigger:{trigger:'.final',start:'top bottom',end:'bottom bottom',scrub:true}});
+gsap.from('.quadro>*',{opacity:0,y:40,stagger:.08,duration:1,ease:'power3.out',scrollTrigger:{trigger:'.quadro',start:'top 80%'}});
+window.addEventListener('load',()=>ScrollTrigger.refresh());
+
+</script>
+</body>
+</html>
